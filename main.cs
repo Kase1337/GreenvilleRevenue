@@ -35,28 +35,39 @@ class Program
 }
      static void calculationmethod() // the calculation method
         {
+            // Prompt for and read the number of contestants from last year
             Console.WriteLine("Enter the number of contestants last year:");
-            int lastyear = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the number of contestants this year:");
-            int thisyear = int.Parse(Console.ReadLine());
-            double revenuePerContestant = 25.0; // the revenue per contestant is 25 dollars
-
-            double revenue = thisyear * revenuePerContestant; // the revenue is the number of contestants this year multiplied by the revenue per contestant
-            Console.WriteLine("Last year's competition had "+(lastyear)+" contestants, and this year's has "+ (thisyear)+" contestants"); // the program will display the number of contestants last year and this year
-
-
-            Console.WriteLine($"Revenue expected this year is ${revenue}"); // the program will display the revenue expected this year
-
-            if (thisyear > lastyear) // if the number of contestants this year is greater than the number of contestants last year, the program will display
-                Console.WriteLine("It is true that this year's competition is bigger than last year's.");
-            else
-                Console.WriteLine("It is false that this year's competition is not bigger than last year's."); // if the number of contestants this year is less than the number of contestants last year, the program will display
+            int lastYear = int.Parse(Console.ReadLine());
             
-            Console.WriteLine("");
-            Console.WriteLine("************************************");
-            Console.WriteLine("*  The stars shine in Greenville.  *");
-            Console.WriteLine("************************************");
+            // Prompt for and read the number of contestants from this year
+            Console.WriteLine("Enter the number of contestants this year:");
+            int thisYear = int.Parse(Console.ReadLine());
+            
+            double revenuePerContestant = 25.0; // the revenue per contestant is $25
+            // Calculate the revenue for this year
+            double revenue = thisYear * revenuePerContestant; // the revenue is the number of contestants this year multiplied by the revenue per contestant
 
+            
+            // New comparison logic based on v0.2 requirements 
+            if (thisYear > 2 * lastYear) // This calculates a more than double the contestants
+            {
+                Console.WriteLine("The competition is more than twice as big this year!");   // if the number of contestants this year is greater than double the number of contestants last year, the program will
+                Console.WriteLine("");
+            }
+            else if (thisYear > lastYear) // This calculates a more contestants than last year but not double
+            {
+                Console.WriteLine("The competition is bigger than ever!");   // if the number of contestants this year is greater than the number of contestants last year, the program will
+                Console.WriteLine("");
+            }
+            else // This calculates a fewer or the same number of contestants as last year
+            {
+                Console.WriteLine("A tighter race this year! Come out and cast your vote!");  // if the number of contestants this year is less than or equal to the number of contestants last year, display "tigher race this year! Come out and cast your vote!"
+                Console.WriteLine("");
+            }
+
+              Console.WriteLine("************************************");
+              Console.WriteLine("*  The stars shine in Greenville.  *");
+              Console.WriteLine("************************************");
         }
     }
     }
